@@ -218,7 +218,7 @@ resulting propagation looks like this</p>
     <span class="n">z</span><span class="p">,</span>
     <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">t_end</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
-    <span class="n">n_steps</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">n_steps</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
     <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
     <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
@@ -245,7 +245,7 @@ propagation looks like this:</p>
     <span class="n">z</span><span class="p">,</span>
     <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">t_end</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
-    <span class="n">n_steps</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">n_steps</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
     <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
     <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
     <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
@@ -286,7 +286,7 @@ of the pulse:</p>
 <span class="c1"># (see https://www.rp-photonics.com/group_velocity_dispersion.html)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
-    <span class="n">z</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">animate</span><span class="p">(</span>
     <span class="n">z</span><span class="p">,</span>
@@ -297,7 +297,7 @@ of the pulse:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="" src="_images/group_velocity_dispersion.gif" /></p>
+<p><img alt="" src="../../examples_output/group_velocity_dispersion.gif" /></p>
 </section>
 <section id="spatial-representation-vs-time-representation">
 <h2>Spatial representation vs. time representation<a class="headerlink" href="#spatial-representation-vs-time-representation" title="Permalink to this headline">#</a></h2>
