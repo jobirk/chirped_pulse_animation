@@ -208,13 +208,17 @@ propagating the pulse along a z-axis.</p>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the refractive index and <code class="docutils literal notranslate"><span class="pre">c_0</span></code> the speed of light in vacuum. The
 resulting propagation looks like this</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Special case</span>
+<!-- write examples_for_ci.py -->
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panim</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Special case without dispersion</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
     <span class="n">z</span><span class="p">,</span>
     <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">t_end</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
-    <span class="n">n_steps</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">n_steps</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
     <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
     <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
@@ -224,7 +228,7 @@ resulting propagation looks like this</p>
     <span class="n">p</span><span class="p">,</span>
     <span class="n">ms_between_frames</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
     <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./animations/group_equal_phase.mp4&quot;</span><span class="p">,</span>
+    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./animations/group_equal_phase.gif&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -234,13 +238,14 @@ resulting propagation looks like this</p>
 example, the phase velocity and the group velocity differ.
 Assuming that all higher order derivatives vanish, the resulting
 propagation looks like this:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># First order dispersion (group delay)</span>
+<!-- append examples_for_ci.py -->
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># First order dispersion</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
     <span class="n">z</span><span class="p">,</span>
     <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">t_end</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
-    <span class="n">n_steps</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">n_steps</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
     <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
     <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
@@ -250,7 +255,7 @@ propagation looks like this:</p>
     <span class="n">p</span><span class="p">,</span>
     <span class="n">ms_between_frames</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
     <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./animations/1st_order_dispersion.mp4&quot;</span><span class="p">,</span>
+    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./animations/1st_order_dispersion.gif&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -276,17 +281,19 @@ the phase velocity (the case in the previous animation).</p>
 <p>If also the second order dispersion is non-zero, then group
 velocity dispersion (GVD) occurs, resulting in a linear frequency chirp
 of the pulse:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Second order dispersion (group velocity dispersion)</span>
+<!-- append examples_for_ci.py -->
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Second order dispersion (group delay dispersion/ group velocity dispersion)</span>
+<span class="c1"># (see https://www.rp-photonics.com/group_velocity_dispersion.html)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
-    <span class="n">z</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span>
+    <span class="n">z</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">animate</span><span class="p">(</span>
     <span class="n">z</span><span class="p">,</span>
     <span class="n">p</span><span class="p">,</span>
     <span class="n">ms_between_frames</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
     <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./animations/group_velocity_dispersion.mp4&quot;</span><span class="p">,</span>
+    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./animations/group_velocity_dispersion.gif&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
