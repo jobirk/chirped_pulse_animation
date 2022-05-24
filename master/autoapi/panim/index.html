@@ -198,13 +198,14 @@ function checkPageExistsAndRedirect(event) {
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
             <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items">
-<h3>Versions</h3>
-<ul>
-  <li><a href="../../../v0.0.1/index.html">v0.0.1</a></li>
-  <li><a href="index.html">master</a></li>
-</ul>
-
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
               </div>
               <div class="sidebar-end-items">
               </div>
