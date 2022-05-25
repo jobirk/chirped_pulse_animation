@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>panim &#8212; panim  documentation</title>
+    <title>panim &#8212; panim 0.1.0dev documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -105,7 +105,7 @@
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
      on being processed by Jinja before it is run (specifically for replacing
-     variables autoapi/panim/index and {'json_url': 'https://jobirk.github.io/panim/master/_static/switcher.json', 'version_match': 'latest'}.
+     variables autoapi/panim/index and {'json_url': '/_static/switcher.json', 'version_match': 'latest'}.
 -->
 
 <script type="text/javascript">
@@ -132,7 +132,7 @@ function checkPageExistsAndRedirect(event) {
 
 // Populate the version switcher from the JSON config file
 (function () {
-    $.getJSON("https://jobirk.github.io/panim/master/_static/switcher.json", function(data, textStatus, jqXHR) {
+    $.getJSON("/_static/switcher.json", function(data, textStatus, jqXHR) {
         const currentFilePath = "autoapi/panim/index.html";
         // create links to the corresponding page in the other docs versions
         $.each(data, function(index, entry) {
@@ -235,6 +235,11 @@ function checkPageExistsAndRedirect(event) {
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#panim.__version__">
+       __version__
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#panim.c">
        c
       </a>
@@ -335,11 +340,19 @@ function checkPageExistsAndRedirect(event) {
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#panim.c" title="panim.c"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#panim.__version__" title="panim.__version__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__version__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#panim.c" title="panim.c"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py data">
+<dt class="sig sig-object py" id="panim.__version__">
+<span class="sig-prename descclassname"><span class="pre">panim.</span></span><span class="sig-name descname"><span class="pre">__version__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.1.0dev</span></em><a class="headerlink" href="#panim.__version__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 <dl class="py data">
 <dt class="sig sig-object py" id="panim.c">
 <span class="sig-prename descclassname"><span class="pre">panim.</span></span><span class="sig-name descname"><span class="pre">c</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#panim.c" title="Permalink to this definition">#</a></dt>

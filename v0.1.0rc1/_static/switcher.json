@@ -1,0 +1,11 @@
+[
+    {
+        "name": "latest",
+        "version": "latest",
+        "url":"https://jobirk.github.io/panim/latest/"
+    },
+    {
+        "version": "v0.1.0rc1",
+        "url":"https://jobirk.github.io/panim/v0.1.0rc1/"
+    }
+]

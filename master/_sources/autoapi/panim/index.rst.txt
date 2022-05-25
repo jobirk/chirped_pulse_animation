@@ -27,8 +27,14 @@ Attributes
 
 .. autoapisummary::
 
+   panim.__version__
    panim.c
 
+
+.. py:data:: __version__
+   :annotation: = 0.1.0dev
+
+   
 
 .. py:data:: c
    :annotation: = 1
