@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Examples &#8212; panim 0.1.0rc2 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="panim - Pulse Animation" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="index.html">
+<p class="title">panim</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Quick Start
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Examples
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="autoapi/index.html">
+  API Reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        v0.1.0rc2  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables examples and {'json_url': 'https://jobirk.github.io/panim/master/_static/switcher.json', 'version_match': 'v0.1.0rc2'}.
+-->
+
+<script type="text/javascript">
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "examples.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("https://jobirk.github.io/panim/master/_static/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "examples.html";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's  variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "v0.1.0rc2") {
+                node.classList.add("active");
+                let btn = document.getElementById("version_switcher_button");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
+            }
+        });
+    });
+})();
+</script>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/jobirk/panim" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phase-velocity-and-group-velocity">
+   Phase velocity and group velocity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#group-delay">
+   Group delay
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#group-velocity-dispersion">
+   Group velocity dispersion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spatial-representation-vs-time-representation">
+   Spatial representation vs. time representation
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h1>
+<p>You start with defining a frequency spectrum of the pulse you want to visualise.
+Afterwards, the code constructs the spectral components of the pulse according
+to the frequency spectrum you defined. This means that the final pulse is the
+sum of all the spectral components. The spectral components are just sinusoidal
+waves with the corresponding frequency. In order to visualise the propagation
+of such a pulse, the wave vector <code class="docutils literal notranslate"><span class="pre">k</span></code> is calculated as a function of the
+frequency <code class="docutils literal notranslate"><span class="pre">k(ν)</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>k(ν) = k(ν0) + k&#39;(ν0) * (ν - ν0) + 1 / 2 * k&#39;&#39;(ν0) * (ν - ν0) **2 + ...
+</pre></div>
+</div>
+<p>The function is constructed as the Taylor expansion around the center
+frequency <code class="docutils literal notranslate"><span class="pre">ν0</span></code>.</p>
+<p><img alt="" src="_images/what_it_does.png" /></p>
+<p>This allows to visualise different effects that occur when
+propagating the pulse along a z-axis.</p>
+<section id="phase-velocity-and-group-velocity">
+<h2>Phase velocity and group velocity<a class="headerlink" href="#phase-velocity-and-group-velocity" title="Permalink to this headline">#</a></h2>
+<p>If the refractive index is the same for all frequencies, then the wave vector
+<code class="docutils literal notranslate"><span class="pre">k(ν)</span></code> has to fulfill the equations</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>k(ν0) = k&#39;(ν0) * ν0 ,  k&#39;(ν0) = n / c_0
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the refractive index and <code class="docutils literal notranslate"><span class="pre">c_0</span></code> the speed of light in vacuum. The
+resulting propagation looks like this</p>
+<!-- write examples_for_ci.py -->
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panim</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Special case without dispersion</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
+    <span class="n">z</span><span class="p">,</span>
+    <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">t_end</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
+    <span class="n">n_steps</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+    <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">animate</span><span class="p">(</span>
+    <span class="n">z</span><span class="p">,</span>
+    <span class="n">p</span><span class="p">,</span>
+    <span class="n">ms_between_frames</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./examples_output/group_equal_phase.gif&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../../examples_output/group_equal_phase.gif" /></p>
+<p>which means that phase velocity and group velocity are the same here.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">k(ν0)</span></code> and <code class="docutils literal notranslate"><span class="pre">k'(ν0)</span></code> do not fulfill the conditions as in the above
+example, the phase velocity and the group velocity differ.
+Assuming that all higher order derivatives vanish, the resulting
+propagation looks like this:</p>
+<!-- append examples_for_ci.py -->
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># First order dispersion</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
+    <span class="n">z</span><span class="p">,</span>
+    <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">t_end</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">n_steps</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
+    <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">animate</span><span class="p">(</span>
+    <span class="n">z</span><span class="p">,</span>
+    <span class="n">p</span><span class="p">,</span>
+    <span class="n">ms_between_frames</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./examples_output/1st_order_dispersion.gif&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../../examples_output/1st_order_dispersion.gif" /></p>
+</section>
+<section id="group-delay">
+<h2>Group delay<a class="headerlink" href="#group-delay" title="Permalink to this headline">#</a></h2>
+<p>Group delay in general is the derivative <code class="docutils literal notranslate"><span class="pre">dφ/dω</span></code>. In physical terms, the group
+delay is the time it take for a spectral component to propagate through the
+system you are looking at. Therefore, if the different spectral components
+propagate at different velocities like in an optical fibre, the group delay
+changes with the frequency.
+Since the phase is <code class="docutils literal notranslate"><span class="pre">φ(ω)</span> <span class="pre">=</span> <span class="pre">k(ω)</span> <span class="pre">*</span> <span class="pre">z</span></code>, we get for the group delay</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>T(ω) = dφ/dω = z * 2 * π * ( k&#39;(ν0) + k&#39;&#39;(ν0) * (ν - ν0) + ... )
+</pre></div>
+</div>
+<p>The different orders here are the different orders of dispersion.
+Zeroth order dispersion basically means that the group velocity differs from
+the phase velocity (the case in the previous animation).</p>
+</section>
+<section id="group-velocity-dispersion">
+<h2>Group velocity dispersion<a class="headerlink" href="#group-velocity-dispersion" title="Permalink to this headline">#</a></h2>
+<p>If also the second order dispersion is non-zero, then group
+velocity dispersion (GVD) occurs, resulting in a linear frequency chirp
+of the pulse:</p>
+<!-- append examples_for_ci.py -->
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Second order dispersion (group delay dispersion/ group velocity dispersion)</span>
+<span class="c1"># (see https://www.rp-photonics.com/group_velocity_dispersion.html)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
+    <span class="n">z</span><span class="p">,</span> <span class="n">t_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_end</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">nu_center</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">k_i</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">spec_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">animate</span><span class="p">(</span>
+    <span class="n">z</span><span class="p">,</span>
+    <span class="n">p</span><span class="p">,</span>
+    <span class="n">ms_between_frames</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+    <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./examples_output/group_velocity_dispersion.gif&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../../examples_output/group_velocity_dispersion.gif" /></p>
+</section>
+<section id="spatial-representation-vs-time-representation">
+<h2>Spatial representation vs. time representation<a class="headerlink" href="#spatial-representation-vs-time-representation" title="Permalink to this headline">#</a></h2>
+<p>As can be seen in the animation above, when having GVD the pulse become
+asymmetical along the z-axis. However, this is not the case when looking at the
+electric field at one fixed position as a function of time.
+This is shown in the animation below. The upper animation shows the propagation
+of the pulse along the z-axis, while the lower animation shows the electric
+field of the pulse at the position which is marked in the upper animation with
+the vertical line as a function of time.</p>
+<p>In the time domain (at a fixed position), the pulse still has a gaussian shape,
+since only the spectral phases are changed, but not the amplitudes, which means
+that the spectral distribution is still a gaussian, and therefore also the
+pulse in time is a gaussian.</p>
+<p><img alt="" src="../../examples_output/spatial_vs_time.gif" /></p>
+</section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">panim - Pulse Animation</p>
+        </div>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Joschka Birk.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
