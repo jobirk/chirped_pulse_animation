@@ -362,18 +362,20 @@ function checkPageExistsAndRedirect(event) {
 <dt class="sig sig-object py" id="panim.k">
 <span class="sig-prename descclassname"><span class="pre">panim.</span></span><span class="sig-name descname"><span class="pre">k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu_center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#panim.k" title="Permalink to this definition">#</a></dt>
 <dd><p>Calculates the wave vector k as a function of the frequency nu</p>
-<dl class="simple">
-<dt>k0<span class="classifier">float, optional</span></dt><dd><p>Zero-order derivative</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k0</strong> (<em>float</em><em>, </em><em>optional</em>) – Zero-order derivative</p></li>
+<li><p><strong>k1</strong> (<em>float</em><em>, </em><em>optional</em>) – First order derivative dk/dω</p></li>
+<li><p><strong>k2</strong> (<em>float</em><em>, </em><em>optional</em>) – Second order derivative d^2k/dω^2</p></li>
+<li><p><strong>k3</strong> (<em>float</em><em>, </em><em>optional</em>) – Third order derivative d^3k/dω^3</p></li>
+</ul>
 </dd>
-<dt>k1<span class="classifier">float, optional</span></dt><dd><p>First order derivative dk/dω</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>k</strong> – Wave vector k(ω)</p>
 </dd>
-<dt>k2<span class="classifier">float, optional</span></dt><dd><p>Second order derivative d^2k/dω^2</p>
-</dd>
-<dt>k3<span class="classifier">float, optional</span></dt><dd><p>Third order derivative d^3k/dω^3</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>k<span class="classifier">float</span></dt><dd><p>Wave vector k(ω)</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
@@ -385,48 +387,43 @@ function checkPageExistsAndRedirect(event) {
 <dt>Calculates the sum of plane waves (sinusoidal signals) over a</dt><dd><p>given frequency spectrum</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>z<span class="classifier">array_like</span></dt><dd><p>Array of the z-axis your wave packet is propagating on.</p>
-</dd>
-<dt>t<span class="classifier">float</span></dt><dd><p>Time at which you want to calculate the current spatial form of the
-wave (snapshot along the z-axis at that point in time).</p>
-</dd>
-<dt>nu_center<span class="classifier">float, optional</span></dt><dd><p>Center frequency of the frequency spectrum you are using in the
-simulation. Default is 1.</p>
-</dd>
-<dt>nu_min<span class="classifier">float, optional</span></dt><dd><p>Minimal frequency that is included in the spectrum. By default the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<em>array_like</em>) – Array of the z-axis your wave packet is propagating on.</p></li>
+<li><p><strong>t</strong> (<em>float</em>) – Time at which you want to calculate the current spatial form of the
+wave (snapshot along the z-axis at that point in time).</p></li>
+<li><p><strong>nu_center</strong> (<em>float</em><em>, </em><em>optional</em>) – Center frequency of the frequency spectrum you are using in the
+simulation. Default is 1.</p></li>
+<li><p><strong>nu_min</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimal frequency that is included in the spectrum. By default the
 spectrum from nu_min to 2*nu_center is considered. Therefore, if you
 are using a very low nu_center, you may have to adjust nu_min as well.
-Default is 0.001.</p>
-</dd>
-<dt>N_frequencies<span class="classifier">int, optional</span></dt><dd><p>Number of frequencies (spectral components) included in the sum. The
+Default is 0.001.</p></li>
+<li><p><strong>N_frequencies</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of frequencies (spectral components) included in the sum. The
 final spectrum is a numpy.linspace(nu_min, 2 * nu_center). The default
-value for N_frequencies is 4000.</p>
-</dd>
-<dt>spec_width<span class="classifier">int, optional</span></dt><dd><p>Width of the spectrum. The spectrum is a gaussian signal obtained from
+value for N_frequencies is 4000.</p></li>
+<li><p><strong>spec_width</strong> (<em>int</em><em>, </em><em>optional</em>) – Width of the spectrum. The spectrum is a gaussian signal obtained from
 scipy. The variable spec_width is not exactly the spectral width Δν.
 Instead, a gaussian along the range (0, N_frequencies) is generated
 with standard deviation spec_width. So if you want e.g. a very sharp
 peak at nu_center with N_frequencies=4000, choose e.g. spec_width=100.
-Default is 100.</p>
-</dd>
-<dt>k_i<span class="classifier">list of floats, optional</span></dt><dd><p>List that contains the values you want to use for the
-frequency-dependent wave vector k. Default is [1, 5, 0].</p>
-</dd>
-<dt>plotting<span class="classifier">bool, optional</span></dt><dd><p>Bool to turn on the plotting, which will plot some spectral components,
+Default is 100.</p></li>
+<li><p><strong>k_i</strong> (<em>list of floats</em><em>, </em><em>optional</em>) – List that contains the values you want to use for the
+frequency-dependent wave vector k. Default is [1, 5, 0].</p></li>
+<li><p><strong>plotting</strong> (<em>bool</em><em>, </em><em>optional</em>) – Bool to turn on the plotting, which will plot some spectral components,
 the resulting total wave (the wave packet) and the underlying spectrum.
-Default is False.</p>
+Default is False.</p></li>
+<li><p><strong>z_arrow</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to plot a arrow with the label ‘position z’ along the direction
+of propagation. Default is False.</p></li>
+<li><p><strong>figuresize</strong> (<em>tuple of ints</em><em>, </em><em>optional</em>) – Size of the figure when plotting the wave. Default is (11, 4).</p></li>
+<li><p><strong>savein</strong> (<em>string</em><em>, </em><em>optional</em>) – Directory where you want to save the plots.</p></li>
+</ul>
 </dd>
-<dt>z_arrow<span class="classifier">bool, optional</span></dt><dd><p>Option to plot a arrow with the label ‘position z’ along the direction
-of propagation. Default is False.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>E</strong> – E-field amplitude along the z-axis at time t.</p>
 </dd>
-<dt>figuresize<span class="classifier">tuple of ints, optional</span></dt><dd><p>Size of the figure when plotting the wave. Default is (11, 4).</p>
-</dd>
-<dt>savein<span class="classifier">string, optional</span></dt><dd><p>Directory where you want to save the plots.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>E<span class="classifier">array</span></dt><dd><p>E-field amplitude along the z-axis at time t.</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -435,32 +432,31 @@ of propagation. Default is False.</p>
 <dt class="sig sig-object py" id="panim.calc_pulses">
 <span class="sig-prename descclassname"><span class="pre">panim.</span></span><span class="sig-name descname"><span class="pre">calc_pulses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">5,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#panim.calc_pulses" title="Permalink to this definition">#</a></dt>
 <dd><p>Calculates the spatial form of the pulse at different times</p>
-<dl class="simple">
-<dt>z<span class="classifier">array_like</span></dt><dd><p>Array of the z-axis your wave packet is propagating on.</p>
-</dd>
-<dt>t_start<span class="classifier">float</span></dt><dd><p>Start time of the propagation.</p>
-</dd>
-<dt>t_end<span class="classifier">float</span></dt><dd><p>End time of the propagation.</p>
-</dd>
-<dt>n_steps<span class="classifier">int</span></dt><dd><p>Number of time steps you want to animate.</p>
-</dd>
-<dt>nu_center<span class="classifier">float, optional</span></dt><dd><p>Center frequency of the frequency spectrum you are using in the
-simulation. Default is 1.</p>
-</dd>
-<dt>k_i<span class="classifier">list of floats, optional</span></dt><dd><p>List that contains the values you want to use for the
-frequency-dependent wave vector k. Default is [1, 5, 0].</p>
-</dd>
-<dt>spec_width<span class="classifier">int, optional</span></dt><dd><p>Width of the spectrum. The spectrum is a gaussian signal obtained from
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<em>array_like</em>) – Array of the z-axis your wave packet is propagating on.</p></li>
+<li><p><strong>t_start</strong> (<em>float</em>) – Start time of the propagation.</p></li>
+<li><p><strong>t_end</strong> (<em>float</em>) – End time of the propagation.</p></li>
+<li><p><strong>n_steps</strong> (<em>int</em>) – Number of time steps you want to animate.</p></li>
+<li><p><strong>nu_center</strong> (<em>float</em><em>, </em><em>optional</em>) – Center frequency of the frequency spectrum you are using in the
+simulation. Default is 1.</p></li>
+<li><p><strong>k_i</strong> (<em>list of floats</em><em>, </em><em>optional</em>) – List that contains the values you want to use for the
+frequency-dependent wave vector k. Default is [1, 5, 0].</p></li>
+<li><p><strong>spec_width</strong> (<em>int</em><em>, </em><em>optional</em>) – Width of the spectrum. The spectrum is a gaussian signal obtained from
 scipy. The variable spec_width is not exactly the spectral width Δν.
 Instead, a gaussian along the range (0, N_frequencies) is generated
 with standard deviation spec_width. So if you want e.g. a very sharp
 peak at nu_center with N_frequencies=4000, choose e.g. spec_width=100.
-Default is 100.</p>
+Default is 100.</p></li>
+</ul>
 </dd>
-</dl>
-<dl class="simple">
-<dt>pulses<span class="classifier">array</span></dt><dd><p>Array of shape (n_steps, len(z)), which contains the electric field of
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pulses</strong> – Array of shape (n_steps, len(z)), which contains the electric field of
 the wave at all time steps.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -469,18 +465,17 @@ the wave at all time steps.</p>
 <dt class="sig sig-object py" id="panim.animate">
 <span class="sig-prename descclassname"><span class="pre">panim.</span></span><span class="sig-name descname"><span class="pre">animate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_between_frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figuresize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(11,</span> <span class="pre">4)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saveas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#panim.animate" title="Permalink to this definition">#</a></dt>
 <dd><p>Animates the time evolution of the wave packet</p>
-<dl class="simple">
-<dt>z<span class="classifier">array_like</span></dt><dd><p>Array of the z-axis your wave packet is propagating on.</p>
-</dd>
-<dt>pulses<span class="classifier">array</span></dt><dd><p>Array of shape (n_steps, len(z)), which contains the electric field of
-the wave at all time steps.</p>
-</dd>
-<dt>ms_between_frames<span class="classifier">int, optional</span></dt><dd><p>Milliseconds of pause between two frames in the animation. Default
-is 30.</p>
-</dd>
-<dt>figuresize<span class="classifier">tuple of ints, optional</span></dt><dd><p>Size of the figure when plotting the wave. Default is (11, 4).</p>
-</dd>
-<dt>saveas<span class="classifier">string, optional</span></dt><dd><p>Path where you want to save the animation as .gif-file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<em>array_like</em>) – Array of the z-axis your wave packet is propagating on.</p></li>
+<li><p><strong>pulses</strong> (<em>array</em>) – Array of shape (n_steps, len(z)), which contains the electric field of
+the wave at all time steps.</p></li>
+<li><p><strong>ms_between_frames</strong> (<em>int</em><em>, </em><em>optional</em>) – Milliseconds of pause between two frames in the animation. Default
+is 30.</p></li>
+<li><p><strong>figuresize</strong> (<em>tuple of ints</em><em>, </em><em>optional</em>) – Size of the figure when plotting the wave. Default is (11, 4).</p></li>
+<li><p><strong>saveas</strong> (<em>string</em><em>, </em><em>optional</em>) – Path where you want to save the animation as .gif-file.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -489,21 +484,19 @@ is 30.</p>
 <dt class="sig sig-object py" id="panim.animate_with_time">
 <span class="sig-prename descclassname"><span class="pre">panim.</span></span><span class="sig-name descname"><span class="pre">animate_with_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms_between_frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figuresize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(11,</span> <span class="pre">4)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">saveas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_z_1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fixed_z_2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#panim.animate_with_time" title="Permalink to this definition">#</a></dt>
 <dd><p>Animates the time evolution of the wave packet</p>
-<dl class="simple">
-<dt>z<span class="classifier">array_like</span></dt><dd><p>Array of the z-axis your wave packet is propagating on.</p>
-</dd>
-<dt>pulses<span class="classifier">array</span></dt><dd><p>Array of shape (n_steps, len(z)), which contains the electric field of
-the wave at all time steps.</p>
-</dd>
-<dt>ms_between_frames<span class="classifier">int, optional</span></dt><dd><p>Milliseconds of pause between two frames in the animation. Default
-is 30.</p>
-</dd>
-<dt>figuresize<span class="classifier">tuple of ints, optional</span></dt><dd><p>Size of the figure when plotting the wave. Default is (11, 4).</p>
-</dd>
-<dt>saveas<span class="classifier">string, optional</span></dt><dd><p>Path where you want to save the animation as .gif-file.</p>
-</dd>
-<dt>fixed_z_i<span class="classifier">int, optional</span></dt><dd><p>The index of the value z_i in the array <code class="code docutils literal notranslate"><span class="pre">z</span></code> that you want to use
-for the animation of the time evolution at that point on the z-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<em>array_like</em>) – Array of the z-axis your wave packet is propagating on.</p></li>
+<li><p><strong>pulses</strong> (<em>array</em>) – Array of shape (n_steps, len(z)), which contains the electric field of
+the wave at all time steps.</p></li>
+<li><p><strong>ms_between_frames</strong> (<em>int</em><em>, </em><em>optional</em>) – Milliseconds of pause between two frames in the animation. Default
+is 30.</p></li>
+<li><p><strong>figuresize</strong> (<em>tuple of ints</em><em>, </em><em>optional</em>) – Size of the figure when plotting the wave. Default is (11, 4).</p></li>
+<li><p><strong>saveas</strong> (<em>string</em><em>, </em><em>optional</em>) – Path where you want to save the animation as .gif-file.</p></li>
+<li><p><strong>fixed_z_i</strong> (<em>int</em><em>, </em><em>optional</em>) – The index of the value z_i in the array <code class="code docutils literal notranslate"><span class="pre">z</span></code> that you want to use
+for the animation of the time evolution at that point on the z-axis.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -512,40 +505,33 @@ for the animation of the time evolution at that point on the z-axis.</p>
 <dt class="sig sig-object py" id="panim.plot_pulses">
 <span class="sig-prename descclassname"><span class="pre">panim.</span></span><span class="sig-name descname"><span class="pre">plot_pulses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">z,</span> <span class="pre">times,</span> <span class="pre">nu_center=0.5,</span> <span class="pre">k_i=[1,</span> <span class="pre">10,</span> <span class="pre">0],</span> <span class="pre">spec_width=400,</span> <span class="pre">no_axes=False,</span> <span class="pre">plotname='',</span> <span class="pre">dpi=100,</span> <span class="pre">figuresize=(11,</span> <span class="pre">4),</span> <span class="pre">z_arrow=False,</span> <span class="pre">colors=['steelblue'</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(10)]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#panim.plot_pulses" title="Permalink to this definition">#</a></dt>
 <dd><p>Plots the pulse at different times</p>
-<dl class="simple">
-<dt>z<span class="classifier">array_like</span></dt><dd><p>Array of the z-axis your wave packet is propagating on.</p>
-</dd>
-<dt>times<span class="classifier">array_like</span></dt><dd><p>Array of the points in time you want to plot.</p>
-</dd>
-<dt>nu_center<span class="classifier">float, optional</span></dt><dd><p>Center frequency of the frequency spectrum you are using in the
-simulation. Default is 1.</p>
-</dd>
-<dt>k_i<span class="classifier">list of floats, optional</span></dt><dd><p>List that contains the values you want to use for the
-frequency-dependent wave vector k. Default is [1, 5, 0].</p>
-</dd>
-<dt>spec_width<span class="classifier">int, optional</span></dt><dd><p>Width of the spectrum. The spectrum is a gaussian signal obtained from
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<em>array_like</em>) – Array of the z-axis your wave packet is propagating on.</p></li>
+<li><p><strong>times</strong> (<em>array_like</em>) – Array of the points in time you want to plot.</p></li>
+<li><p><strong>nu_center</strong> (<em>float</em><em>, </em><em>optional</em>) – Center frequency of the frequency spectrum you are using in the
+simulation. Default is 1.</p></li>
+<li><p><strong>k_i</strong> (<em>list of floats</em><em>, </em><em>optional</em>) – List that contains the values you want to use for the
+frequency-dependent wave vector k. Default is [1, 5, 0].</p></li>
+<li><p><strong>spec_width</strong> (<em>int</em><em>, </em><em>optional</em>) – Width of the spectrum. The spectrum is a gaussian signal obtained from
 scipy. The variable spec_width is not exactly the spectral width Δν.
 Instead, a gaussian along the range (0, N_frequencies) is generated
 with standard deviation spec_width. So if you want e.g. a very sharp
 peak at nu_center with N_frequencies=4000, choose e.g. spec_width=100.
-Default is 100.</p>
-</dd>
-<dt>no_axes<span class="classifier">bool, optional</span></dt><dd><p>Option to turn of the plotting of the axes. Default is False.</p>
-</dd>
-<dt>plotname<span class="classifier">str, optional</span></dt><dd><p>Path of the plot, except for the “.pdf”, in case you want to save the
+Default is 100.</p></li>
+<li><p><strong>no_axes</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to turn of the plotting of the axes. Default is False.</p></li>
+<li><p><strong>plotname</strong> (<em>str</em><em>, </em><em>optional</em>) – Path of the plot, except for the “.pdf”, in case you want to save the
 plot. If more than one time step is to be plotted, the for each time
 step a plot is produced, containing the previous timesteps and the
-current one. Default is “”, corresponding to not saving the plot.</p>
-</dd>
-<dt>dpi<span class="classifier">int, optional</span></dt><dd><p>Number of DPI in the plots. Default is 100.</p>
-</dd>
-<dt>figuresize<span class="classifier">tuple of ints, optional</span></dt><dd><p>Size of the figure when plotting the wave. Default is (11, 4).</p>
-</dd>
-<dt>z_arrow<span class="classifier">bool, optional</span></dt><dd><p>Option to plot a arrow with the label ‘position z’ along the direction
-of propagation. Default is False.</p>
-</dd>
-<dt>colors<span class="classifier">list of str, optional</span></dt><dd><p>The colors you want to use for the different time steps. By default all
-time steps are plotted with the standard python ‘steelblue’.</p>
+current one. Default is “”, corresponding to not saving the plot.</p></li>
+<li><p><strong>dpi</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of DPI in the plots. Default is 100.</p></li>
+<li><p><strong>figuresize</strong> (<em>tuple of ints</em><em>, </em><em>optional</em>) – Size of the figure when plotting the wave. Default is (11, 4).</p></li>
+<li><p><strong>z_arrow</strong> (<em>bool</em><em>, </em><em>optional</em>) – Option to plot a arrow with the label ‘position z’ along the direction
+of propagation. Default is False.</p></li>
+<li><p><strong>colors</strong> (<em>list of str</em><em>, </em><em>optional</em>) – The colors you want to use for the different time steps. By default all
+time steps are plotted with the standard python ‘steelblue’.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
