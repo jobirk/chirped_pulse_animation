@@ -32,7 +32,7 @@ Attributes
 
 
 .. py:data:: __version__
-   :annotation: = 0.1.0rc4dev
+   :annotation: = 0.1.0dev
 
    
 
