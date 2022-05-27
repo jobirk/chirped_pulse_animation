@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>panim - Pulse Animation &#8212; panim 0.1.0rc3 documentation</title>
+    <title>panim - Pulse Animation &#8212; panim 0.1.0rc4dev documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -96,7 +96,7 @@
       <div class="navbar-end-item">
         <div class="dropdown" id="version_switcher">
     <button type="button" class="btn btn-primary btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
-        v0.1.0rc3  <!-- this text may get changed later by javascript -->
+        master  <!-- this text may get changed later by javascript -->
         <span class="caret"></span>
     </button>
     <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
@@ -106,7 +106,7 @@
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
      on being processed by Jinja before it is run (specifically for replacing
-     variables index and {'json_url': 'https://jobirk.github.io/panim/master/_static/switcher.json', 'version_match': 'v0.1.0rc3'}.
+     variables index and {'json_url': 'https://jobirk.github.io/panim/master/_static/switcher.json', 'version_match': 'master'}.
 -->
 
 <script type="text/javascript">
@@ -160,7 +160,7 @@ function checkPageExistsAndRedirect(event) {
             // this version, rather than using sphinx's  variable.
             // also highlight the dropdown entry for the currently-viewed
             // version's entry
-            if (entry.version == "v0.1.0rc3") {
+            if (entry.version == "master") {
                 node.classList.add("active");
                 let btn = document.getElementById("version_switcher_button");
                 btn.innerText = btn.dataset["activeVersionName"] = entry.name;
