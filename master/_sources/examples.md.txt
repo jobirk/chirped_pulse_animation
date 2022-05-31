@@ -34,25 +34,7 @@ resulting propagation looks like this
 from panim import *
 import os
 import numpy as np
-)
-
-# Special case without dispersion
-z = np.linspace(0, 200, 1000)
-p = calc_pulses(
-    z,
-    t_start=0,
-    t_end=2000,
-    n_steps=200,
-    nu_center=0.02,
-    k_i=[10 * 2 * np.pi * 0.02, 10, 0],
-    spec_width=600,
-)
-animate(
-    z,
-    p,
-    ms_between_frames=40,
-    figuresize=(14, 4),
-```
+)```
 
 ![](assets/group_equal_phase.gif)
 <img src=https://github.com/jobirk/panim/raw/examples-material/group_equal_phase.gif width=500>
@@ -65,24 +47,6 @@ Assuming that all higher order derivatives vanish, the resulting
 propagation looks like this:
 
 ```py
-# https://www.rp-photonics.com/chromatic_dispersion.html
-
-# First order dispersion
-z = np.linspace(0, 100, 1000)
-p = calc_pulses(
-    z,
-    t_start=0,
-    t_end=1000,
-    n_steps=200,
-    nu_center=0.025,
-    k_i=[4, 10, 0],
-    spec_width=600,
-)
-animate(
-    z,
-    p,
-    ms_between_frames=40,
-    figuresize=(14, 4),
 ```
 
 ![](assets/1st_order_dispersion.gif)
@@ -109,19 +73,6 @@ velocity dispersion (GVD) occurs, resulting in a linear frequency chirp
 of the pulse:
 
 ```py
-)
-
-# Second order dispersion (group delay dispersion/ group velocity dispersion)
-# (see https://www.rp-photonics.com/group_velocity_dispersion.html)
-z = np.linspace(-30, 600, 1000)
-p = calc_pulses(
-    z, t_start=0, t_end=2500, n_steps=500, nu_center=0.02, k_i=[1, 3, 2], spec_width=600,
-)
-animate(
-    z,
-    p,
-    ms_between_frames=40,
-    figuresize=(14, 4),
 ```
 
 ![](assets/group_velocity_dispersion.gif)
