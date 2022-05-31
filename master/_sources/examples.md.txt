@@ -34,6 +34,8 @@ resulting propagation looks like this
 from panim import *
 import os
 import numpy as np
+)
+
 # Special case without dispersion
 z = np.linspace(0, 200, 1000)
 p = calc_pulses(
@@ -50,8 +52,6 @@ animate(
     p,
     ms_between_frames=40,
     figuresize=(14, 4),
-    saveas="./plots/group_equal_phase.gif",
-)
 ```
 
 ![](assets/group_equal_phase.gif)
@@ -66,6 +66,8 @@ propagation looks like this:
 <!-- append examples_for_ci.py -->
 
 ```py
+# https://www.rp-photonics.com/chromatic_dispersion.html
+
 # First order dispersion
 z = np.linspace(0, 100, 1000)
 p = calc_pulses(
@@ -82,8 +84,6 @@ animate(
     p,
     ms_between_frames=40,
     figuresize=(14, 4),
-    saveas="./plots/1st_order_dispersion.gif",
-)
 ```
 
 ![](assets/1st_order_dispersion.gif)
@@ -112,6 +112,8 @@ of the pulse:
 <!-- append examples_for_ci.py -->
 
 ```py
+)
+
 # Second order dispersion (group delay dispersion/ group velocity dispersion)
 # (see https://www.rp-photonics.com/group_velocity_dispersion.html)
 z = np.linspace(-30, 600, 1000)
@@ -123,8 +125,6 @@ animate(
     p,
     ms_between_frames=40,
     figuresize=(14, 4),
-    saveas="./plots/group_velocity_dispersion.gif",
-)
 ```
 
 ![](assets/group_velocity_dispersion.gif)

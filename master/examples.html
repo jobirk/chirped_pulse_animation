@@ -291,6 +291,8 @@ resulting propagation looks like this</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">panim</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="p">)</span>
+
 <span class="c1"># Special case without dispersion</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
@@ -307,8 +309,6 @@ resulting propagation looks like this</p>
     <span class="n">p</span><span class="p">,</span>
     <span class="n">ms_between_frames</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
     <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./plots/group_equal_phase.gif&quot;</span><span class="p">,</span>
-<span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="" src="_images/group_equal_phase.gif" /></p>
@@ -318,7 +318,9 @@ example, the phase velocity and the group velocity differ.
 Assuming that all higher order derivatives vanish, the resulting
 propagation looks like this:</p>
 <!-- append examples_for_ci.py -->
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># First order dispersion</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://www.rp-photonics.com/chromatic_dispersion.html</span>
+
+<span class="c1"># First order dispersion</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
     <span class="n">z</span><span class="p">,</span>
@@ -334,8 +336,6 @@ propagation looks like this:</p>
     <span class="n">p</span><span class="p">,</span>
     <span class="n">ms_between_frames</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
     <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./plots/1st_order_dispersion.gif&quot;</span><span class="p">,</span>
-<span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="" src="assets/1st_order_dispersion.gif" /></p>
@@ -361,7 +361,9 @@ the phase velocity (the case in the previous animation).</p>
 velocity dispersion (GVD) occurs, resulting in a linear frequency chirp
 of the pulse:</p>
 <!-- append examples_for_ci.py -->
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Second order dispersion (group delay dispersion/ group velocity dispersion)</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="p">)</span>
+
+<span class="c1"># Second order dispersion (group delay dispersion/ group velocity dispersion)</span>
 <span class="c1"># (see https://www.rp-photonics.com/group_velocity_dispersion.html)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">calc_pulses</span><span class="p">(</span>
@@ -372,8 +374,6 @@ of the pulse:</p>
     <span class="n">p</span><span class="p">,</span>
     <span class="n">ms_between_frames</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
     <span class="n">figuresize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="n">saveas</span><span class="o">=</span><span class="s2">&quot;./plots/group_velocity_dispersion.gif&quot;</span><span class="p">,</span>
-<span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="" src="_images/group_velocity_dispersion.gif" /></p>
