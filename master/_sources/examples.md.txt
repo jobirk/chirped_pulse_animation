@@ -50,7 +50,7 @@ animate(
     p,
     ms_between_frames=40,
     figuresize=(14, 4),
-    saveas="./examples_output/group_equal_phase.gif",
+    saveas="./plots/group_equal_phase.gif",
 )
 ```
 
@@ -82,7 +82,7 @@ animate(
     p,
     ms_between_frames=40,
     figuresize=(14, 4),
-    saveas="./examples_output/1st_order_dispersion.gif",
+    saveas="./plots/1st_order_dispersion.gif",
 )
 ```
 
@@ -123,7 +123,7 @@ animate(
     p,
     ms_between_frames=40,
     figuresize=(14, 4),
-    saveas="./examples_output/group_velocity_dispersion.gif",
+    saveas="./plots/group_velocity_dispersion.gif",
 )
 ```
 
