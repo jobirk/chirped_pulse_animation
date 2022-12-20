@@ -13,7 +13,7 @@ Functions
 
 .. autoapisummary::
 
-   panim.k
+   panim.wave_vector
    panim.sin_sum
    panim.calc_pulses
    panim.animate
@@ -41,30 +41,30 @@ Attributes
 
    
 
-.. py:function:: k(nu, nu_center, k0=1, k1=0, k2=0, k3=0)
+.. py:function:: wave_vector(nu, nu_center, k_0=1, k_1=0, k_2=0, k_3=0)
 
    Calculates the wave vector k as a function of the frequency nu
 
-   :param k0: Zero-order derivative
-   :type k0: float, optional
-   :param k1: First order derivative dk/dω
-   :type k1: float, optional
-   :param k2: Second order derivative d^2k/dω^2
-   :type k2: float, optional
-   :param k3: Third order derivative d^3k/dω^3
-   :type k3: float, optional
+   :param k_0: Zero-order derivative
+   :type k_0: float, optional
+   :param k_1: First order derivative dk/dω
+   :type k_1: float, optional
+   :param k_2: Second order derivative d^2k/dω^2
+   :type k_2: float, optional
+   :param k_3: Third order derivative d^3k/dω^3
+   :type k_3: float, optional
 
    :returns: **k** -- Wave vector k(ω)
    :rtype: float
 
 
-.. py:function:: sin_sum(z, t, nu_center=1, nu_min=0.001, N_frequencies=4000, spec_width=200, k_i=[1, 5, 0], plotting=False, z_arrow=False, figuresize=(11, 4), savein='')
+.. py:function:: sin_sum(z: numpy.ndarray, t: float, nu_center: float = 1, nu_min: float = 0.001, N_frequencies: int = 4000, spec_width: float = 200, k_i: list = [1, 5, 0], plotting: bool = False, z_arrow: bool = False, figuresize: tuple = (11, 4), savein: str = '')
 
    Calculates the sum of plane waves (sinusoidal signals) over a
       given frequency spectrum
 
    :param z: Array of the z-axis your wave packet is propagating on.
-   :type z: array_like
+   :type z: np.ndarray
    :param t: Time at which you want to calculate the current spatial form of the
              wave (snapshot along the z-axis at that point in time).
    :type t: float
