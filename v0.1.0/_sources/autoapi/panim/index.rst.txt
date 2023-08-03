@@ -32,12 +32,12 @@ Attributes
 
 
 .. py:data:: __version__
-   :annotation: = 0.1.0
+   :value: '0.1.0'
 
    
 
 .. py:data:: c
-   :annotation: = 1
+   :value: 1
 
    
 
